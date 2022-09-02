@@ -1,0 +1,39 @@
+package densidadedepalavras;
+
+import java.util.Scanner;
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.text.DecimalFormat;
+
+public class DensidadeDePalavras{
+    public static void main (String[] args){
+        
+        Scanner entrada = new Scanner(System.in);
+        
+        System.out.print("cole aqui o texto que voce deseja analisar: ");
+        String texto = entrada.nextLine();
+        System.out.print("digite aqui a palavra que deseja contabilizar: ");
+        String palavra = entrada.nextLine();
+        
+        entrada.close();
+        
+        String textoLimpo = texto.replaceAll("[^abcdefghijklmnopqrstuvwxyz0123456789]", " ");
+                
+        String[] textoOtimizadoArray = textoLimpo.split("\\s+");
+        ArrayList<String> textoOtimizado = new ArrayList<>(Arrays.asList(textoOtimizadoArray));
+        
+        int contador = 0;
+        int n = 0;
+        
+        do{
+            if (palavra.equals(textoOtimizado.get(n))){
+                contador += 1;
+            }
+            n++;
+        } while(n < textoOtimizado.size());
+                
+        double densidade = (double) contador / textoOtimizado.size();
+        
+        System.out.println("a palavra aparece no texto " + contador + " vezes e a densidade da palavra e de: " + new DecimalFormat("#,##0.00").format(densidade));
+    }
+}
