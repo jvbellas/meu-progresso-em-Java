@@ -1,6 +1,3 @@
-
-// A MINHA BUSCA ESTÁ CASE SENSITIVE, COMO DEIXÁ-LA INSENSITIVE?
-
 import javax.swing.*;
 import java.awt.*;
 import java.text.DecimalFormat;
